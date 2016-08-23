@@ -45,3 +45,13 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+# Jhernandez
+# =========================
+
+.env
+**/*.pyc
+**/__pycache__
+**/migrations
+**/*.sqlite
