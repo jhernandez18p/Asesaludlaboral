@@ -1,4 +1,4 @@
-from intra.settings.base import *
+from asesalud.settings.base import *
 
 STATICFILES_DIRS = ('',)
 

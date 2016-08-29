@@ -21,6 +21,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     'local_apps.blog',
+    'local_apps.frontend',
 ]
 
 THIRD_PARTY_APPS = []
