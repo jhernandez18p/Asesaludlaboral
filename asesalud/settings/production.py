@@ -1,4 +1,4 @@
-from intra.settings.base import *
+from asesalud.settings.base import *
 
 SECRET_KEY = config('ASESALUD_SECRET_KEY')
 
