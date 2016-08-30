@@ -20,8 +20,12 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
+    'local_apps.asesorias',
     'local_apps.blog',
+    'local_apps.estudios',
     'local_apps.frontend',
+    'local_apps.productos',
+    'local_apps.servicios',
 ]
 
 THIRD_PARTY_APPS = []
