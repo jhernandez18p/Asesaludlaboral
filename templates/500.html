@@ -1,0 +1,63 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Site Name" content="asesaludlabral.com.ve">
+    <meta name="theme-color" content="#FF8F00"/>
+    <meta name="Type" content="website">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="Title" content="{{title}}">
+    <meta name="Keywords" content="Seguridad, Salud,Seguridad laboral, Salud laboral, Laboral, accidentes, accidentes laborales, Venezuela, Inpsasel,Inpsasel.gob.ve,programas de seguridad">
+    <meta name="Author" content="Josmer Hernandez">
+    <meta name="Description" content="Asesaludlaboral es una empresa líder en el sector de la seguridad y salud laboral. Con base en Venezuela y extendiendo operación por la región.">
+    <link rel="stylesheet" href="{% static 'favicon/favicon.ico' %}" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+    <meta name="Author" content="Josmer Hernandez">
+    <title>ERROR 500 | ASESALUDLABORAL 2727 C.A.</title>
+    <link rel="stylesheet" href="{% static 'auth/css/app.css' %}">
+    <title>{{title|upper}} | ASESALUDLABORAL 2727 C.A.</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'favicon/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Custom Styles -->
+    {% block assets %}
+    <style media="screen">
+        body{
+            background-color: #ffffcc;
+        }
+    </style>
+    {% endblock %}
+</head>
+    <body>
+        <div class="login">
+        		<div class="login-screen">
+        			<div class="app-title">
+        				<h2>Error 500!</h2>
+        				<h3>Permiso denegado</h3>
+                        <a href="/">Inicio</a>
+        			</div>
+        		</div>
+        </div>
+
+    </body>
+    <script src="{% static 'base/js/jquery.js' %}" charset="utf-8"></script>
+    <script src="{% static 'base/js/app.js' %}" charset="utf-8"></script>
+    <script src="{% static 'base/js/analytics.js' %}" charset="utf-8"></script>
+</html>

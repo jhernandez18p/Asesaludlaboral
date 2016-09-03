@@ -1,7 +1,133 @@
-.logo-asesalud{
-    max-width: 150px;
-    margin: 0;
+body {
+    background-color: #E0E0E0;
+    font: 400 15px/1.8 Roboto, sans-serif;
+    color: #777;
 }
-.asesalud-navbar, .top-bar ul{
-    background-color: #FFF;
+
+.asesalud-section-margin-top{
+    margin-top: 120px;
+}
+.asesalud-header{
+    background-color: #FFF59D;
+}
+
+.asesalud-navbar-list-logo-edge{
+}
+
+.asesalud-navbar-list-logo{
+}
+
+
+.navbar{
+    background-color: #FFF176;
+    margin-bottom: 0;
+    z-index: 9999;
+    border: 0;
+    font-size: 1.13em !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    height: 90px;
+    font-family: Montserrat, sans-serif;
+}
+.navbar-brand>img {
+    height: 70px;
+    width: auto;
+    margin-top: -5px;
+}
+
+.navbar ul{
+    margin-top: 20px;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #000  !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #fff !important;
+    background-color: transparent; !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 12px;
+    margin-right: 34px;
+    margin-bottom: 8px;
+    background-color: rgba(158, 158, 158, 0.25);
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 44px;
+    padding: 14px 15px;
+    font-size: 20px;
+    line-height: 1.428571;
+    color: #1B5E20;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 5px 0px 0px rgba(27, 94, 32, 0.37);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-control:focus {
+    border-color: rgb(171, 196, 173);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(171, 196, 173);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(171, 196, 173);
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 4px solid transparent;
+    border-radius: 0px;
+}
+@media (max-width: 990px) {
+    .asesalud-section-margin-top{
+        margin-top: 80px;
+    }
+
+    .navbar{
+        font-size: .93em !important;
+        height: 60px;
+    }
+    .navbar-brand>img {
+        height: 40px;
+        width: auto;
+        margin-top: -5px;
+    }
+    .navbar ul{
+        margin-top: 10px;
+
+    }
 }
