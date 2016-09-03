@@ -42,6 +42,6 @@ def contact(request):
 		        )
 
         context = {
-            'title': 'Home'
+            'title': 'Mensaje enviado'
         }
         return render(request, 'frontend/index.html', context)
