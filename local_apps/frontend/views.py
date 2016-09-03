@@ -36,8 +36,8 @@ def contact(request):
 
         send_mail(
 		            'Email de contacto, página web',
-		            '%s, ha estado visitando la página web. Su email es: %s, nos ha dejado el siguiente mensaje. \n %s' % (name,email,comments) ,
-		            config("ASESALUD_EMAIL_HOST_USER",),
+		            '%s, ha estado visitando la página web. Su email es: %s, nos ha dejado el siguiente mensaje. \n\n\n\n\n "%s"' % (name,email,comments) ,
+		            email,
 		            ['jhernandez.18p@gmil.com'],
 		            fail_silently=False,
 		        )

@@ -107,12 +107,12 @@ FIRST_DAY_OF_WEEK = 1
 
 """ Email Conf.             """
 #
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config("ASESALUD_EMAIL_HOST",)
 EMAIL_PORT = config("ASESALUD_EMAIL_PORT", cast=int)
 EMAIL_HOST_USER = config("ASESALUD_EMAIL_HOST_USER",)
 EMAIL_HOST_PASSWORD = config("ASESALUD_EMAIL_HOST_PASSWORD",)
 EMAIL_USE_TLS = config("ASESALUD_EMAIL_USE_TLS", cast=bool)
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 """ Security Conf           """
 
