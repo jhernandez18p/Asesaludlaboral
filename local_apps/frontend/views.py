@@ -1,4 +1,5 @@
-from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from decouple import config
 
@@ -37,7 +38,7 @@ def contact(request):
 		            'Email de contacto, página web',
 		            '%s, ha estado visitando la página web. Su email es: %s, nos ha dejado el siguiente mensaje. \n %s' % (name,email,comments) ,
 		            config("ASESALUD_EMAIL_HOST_USER",),
-		            [config("ASESALUD_EMAIL_HOST_USER",),'jhernandez.18p@gmil.com'],
+		            ['jhernandez.18p@gmil.com'],
 		            fail_silently=False,
 		        )
 
