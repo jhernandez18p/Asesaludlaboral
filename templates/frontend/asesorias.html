@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+<style media="screen">
+div .row {
+display: table;
+}
+
+div .col-md-4 {
+display: table-cell;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="asesalud-asesorias-section asesalud-section-margin-top">
+
+    <div class="asesalud-content-block">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <h3>Asesorías Asesalud Laboral</h3>
+                    <blockquote>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="asesalud-asesorias-block">
+        <div class="container">
+            <div class="row ">
+                <div class="text-center">
+                    <h2>¡Lo que ofrecemos!</h2>
+                </div>
+                <div  id="asesalud-asesorias-items" class="asesalud-asesorias-items">
+                    {% for asesoria in asesorias %}
+                    <div class="col-sm-4 asesalud-asesorias-item">
+                        <figure>
+                            <img src="{% static 'base/images/' %}{{asesoria.poster}}" alt="{{asesoria.name}}">
+                        </figure>
+                        <h3>{{asesoria.title}}</h3>
+                        <p>{{asesoria.description}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+
+    var col_number = $('#asesalud-asesorias-items div').length;
+    var col_father = 'asesalud-asesorias-items';
+
+    if (col_number == 4) {
+        jQuery("div:last", "div#asesalud-asesorias-items").addClass("col-md-offset-2");
+    }
+    if (col_number == 5) {
+        jQuery("div:last", "div#asesalud-asesorias-items").prev().addClass("col-md-offset-2");
+    }
+
+
+</script>
+{% endblock %}
