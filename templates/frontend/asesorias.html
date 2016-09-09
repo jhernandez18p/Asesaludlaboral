@@ -3,18 +3,12 @@
 
 {% block css %}
 <style media="screen">
-div .row {
-display: table;
-}
 
-div .col-md-4 {
-display: table-cell;
-}
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="asesalud-asesorias-section asesalud-section-margin-top">
+<div class="asesalud-asesorias-section">
 
     <div class="asesalud-content-block">
         <div class="container">
@@ -33,21 +27,40 @@ display: table-cell;
 
     <div class="asesalud-asesorias-block">
         <div class="container">
-            <div class="row ">
+            <div class="row">
+
                 <div class="text-center">
                     <h2>¡Lo que ofrecemos!</h2>
                 </div>
-                <div  id="asesalud-asesorias-items" class="asesalud-asesorias-items">
-                    {% for asesoria in asesorias %}
-                    <div class="col-sm-4 asesalud-asesorias-item">
-                        <figure>
-                            <img src="{% static 'base/images/' %}{{asesoria.poster}}" alt="{{asesoria.name}}">
-                        </figure>
-                        <h3>{{asesoria.title}}</h3>
-                        <p>{{asesoria.description}}</p>
+
+            </div>
+            <div id="asesalud-asesorias-items" class="asesalud-asesorias-items row ">
+                {% for asesoria in asesorias %}
+                    <div id="asesalud-asesorias-item" class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="panel panel-default asesalud-asesoria-panel-default asesalud-asesorias-item">
+
+                            <div class="panel-heading asesalud-asesoria-panel-heading text-center">
+                                <h2 class="panel-title">
+                                    <a href="/asesorias/{{ asesoria.id }}">{{asesoria.title}}</a>
+                                </h2>
+                            </div>
+
+                            <div class="media-middle text-center">
+                                <a href="/asesorias/{{ asesoria.id }}">
+                                    <img class="media-object" src="{% static 'base/images/' %}{{asesoria.poster}}" alt="{{asesoria.name}}" height="150">
+                                </a>
+                            </div>
+
+                            <div class="panel-body">
+                                <p>{{asesoria.description}}</p>
+                            </div>
+
+                        </div>
                     </div>
-                    {% endfor %}
-                </div>
+                    {% if forloop.counter|divisibleby:3 %}
+                </div><div id="asesalud-asesorias-items{{forloop.counter}}" class="asesalud-asesorias-items row ">
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -58,14 +71,15 @@ display: table-cell;
 {% block js %}
 <script type="text/javascript">
 
-    var col_number = $('#asesalud-asesorias-items div').length;
+    var col_number = $('#asesalud-asesorias-items3 #asesalud-asesorias-item').length;
     var col_father = 'asesalud-asesorias-items';
+    console.log(col_number);
 
-    if (col_number == 4) {
-        jQuery("div:last", "div#asesalud-asesorias-items").addClass("col-md-offset-2");
+    if (col_number == 1) {
+        jQuery( "#asesalud-asesorias-items3 #asesalud-asesorias-item").addClass("col-md-offset-2");
     }
-    if (col_number == 5) {
-        jQuery("div:last", "div#asesalud-asesorias-items").prev().addClass("col-md-offset-2");
+    if (col_number == 2) {
+        jQuery("#asesalud-asesorias-items3 #asesalud-asesorias-item").prev().addClass("col-md-offset-2");
     }
 
 
