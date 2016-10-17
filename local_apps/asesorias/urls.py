@@ -5,4 +5,5 @@ from local_apps.asesorias import views as asesorias_views
 
 urlpatterns = [
     url(r'^$', asesorias_views.asesorias, name="asesorias"),
+    url(r'^(?P<id>[-\w]+)/$', asesorias_views.detalle, name="asesoria_detalle"),
 ]

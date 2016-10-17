@@ -7,32 +7,16 @@
 {% block content %}
 <div class="asesalud-asesorias-section">
 
-    <div class="asesalud-content-block">
-        <div class="container">
-            <div class="row">
-                <div class="text-center">
-                    <h3>Asesorías de Asesalud Laboral</h3>
-                    <blockquote>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="asesalud-asesorias-block">
         <div class="container">
             <div class="row">
 
                 <div class="text-center">
-                    <h2>¡Lo que ofrecemos!</h2>
+                    <h2>{{asesoria}}</h2>
                 </div>
 
             </div>
             <div id="asesalud-asesorias-items" class="asesalud-asesorias-items row ">
-                {% for asesoria in asesorias %}
                     <div id="asesalud-asesorias-item" class="col-sm-4 col-md-4 col-lg-4">
                         <div class="panel panel-default asesalud-asesoria-panel-default asesalud-asesorias-item">
 
@@ -54,10 +38,6 @@
 
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
-                </div><div id="asesalud-asesorias-items{{forloop.counter}}" class="asesalud-asesorias-items row ">
-                    {% endif %}
-                {% endfor %}
             </div>
         </div>
     </div>

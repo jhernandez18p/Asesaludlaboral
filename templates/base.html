@@ -49,21 +49,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href=""><img src="{% static 'base/images/logo.png' %}" alt="Asesaludlaboral logo"></a>
+                    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'base/images/logo.png' %}" alt="Asesaludlaboral logo"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="">ASESORÍAS</a>
+                            <a href="{% url 'asesorias' %}">ASESORÍAS</a>
                         </li>
                         <li>
-                            <a href="">CAPACITACIONES</a>
+                            <a href="{% url 'capacitaciones' %}">CAPACITACIONES</a>
                         </li>
                         <li>
-                            <a href="">BLOG</a>
+                            <a href="{% url 'blog' %}">BLOG</a>
                         </li>
                         <li>
-                            <a href="#contact">CONTACTO</a>
+                            <a href="{% url 'contact' %}">CONTACTO</a>
                         </li>
                     </ul>
                 </div>
@@ -76,43 +76,43 @@
         {% block content  %}
         {% endblock  %}
 
-    </section>
-
-    <div class="asesalud-contacto asesalud-section-padding" id="contact" >
-        <div class="container">
-            <div class="row">
-                <h3 class="text-center">CONTACTANOS</h3>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-5">
-                    <p><span class="glyphicon glyphicon-map-marker"></span><strong> Ubicación</strong> Guarenas, VE</p>
-                    <p><span class="glyphicon glyphicon-phone"></span><strong> Llamanos</strong> +58 2120000</p>
-                    <p><span class="glyphicon glyphicon-envelope"></span><strong> Escribenos</strong> <a href="mailto:asesoriasesalud@gmail.com?subject=Asesaludlabora web site">asesoriasesalud@gmail.com</a></p>
+        <div class="asesalud-contacto asesalud-section-padding" id="contact" >
+            <div class="container">
+                <div class="row">
+                    <h3 class="text-center">CONTACTANOS</h3>
                 </div>
-
-                <form clas="asesalud-section-contac-us" action="{% url 'contact' %}" method="post">
-                    {% csrf_token %}
-                    <div class="col-sm-7">
-                        <div class="row">
-                            <div class="col-sm-6 form-group">
-                                <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-                            </div>
-                        </div>
-                        <textarea class="form-control" id="comments" name="comments" placeholder="Comentarios" rows="5"></textarea><br>
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <button class="btn btn-default pull-right" type="submit">Enviar</button>
-                            </div>
-                        </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <p><span class="glyphicon glyphicon-map-marker"></span><strong> Ubicación</strong> Guarenas, VE</p>
+                        <p><span class="glyphicon glyphicon-phone"></span><strong> Llamanos</strong> +58 2120000</p>
+                        <p><span class="glyphicon glyphicon-envelope"></span><strong> Escribenos</strong> <a href="mailto:asesoriasesalud@gmail.com?subject=Asesaludlabora web site">asesoriasesalud@gmail.com</a></p>
                     </div>
-                </form>
+
+                    <form clas="asesalud-section-contac-us" action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
+                        <div class="col-sm-7">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                                </div>
+                            </div>
+                            <textarea class="form-control" id="comments" name="comments" placeholder="Comentarios" rows="5"></textarea><br>
+                            <div class="row">
+                                <div class="col-sm-12 form-group">
+                                    <button class="btn btn-default pull-right" type="submit">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+        
+    </section>
 
     <footer class="asesalud-footer">
 

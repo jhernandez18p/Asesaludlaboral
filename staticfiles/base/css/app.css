@@ -4,17 +4,15 @@ body {
     color: #777;
     display: flex;
     flex-direction: column;
+    flex-flow: row wrap;
     min-height: 100vh;
 }
-section{
-    flex: 1;
+header, section, footer {
+    flex: 1 100%;
 }
 /**/
 .asesalud-section-margin-top{
     margin-top: 90px;
-}
-.asesalud-header{
-    background-color: #FFF59D;
 }
 
 .asesalud-navbar-list-logo-edge{

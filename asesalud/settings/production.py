@@ -4,7 +4,7 @@ SECRET_KEY = config('ASESALUD_SECRET_KEY')
 
 DEBUG = config('ASESALUD_DEBUG',default=False, cast=bool)
 
-ALLOWED_HOSTS = ['.asesaludlaboral.com.ve']
+ALLOWED_HOSTS = ['asesaludlaboral.com.ve','www.asesaludlaboral.com.ve']
 
 DATABASES ={
             'default':{

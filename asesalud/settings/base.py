@@ -22,6 +22,7 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     'local_apps.asesorias',
     'local_apps.blog',
+    'local_apps.capacitaciones',
     'local_apps.estudios',
     'local_apps.frontend',
     'local_apps.productos',
