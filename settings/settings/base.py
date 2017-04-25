@@ -3,7 +3,7 @@ from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = config('ASESALUD_SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
@@ -43,7 +43,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'asesalud.urls'
+ROOT_URLCONF = 'settings.urls'
 
 TEMPLATES = [
     {
@@ -61,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'asesalud.wsgi.application'
+WSGI_APPLICATION = 'settings.wsgi.application'
 
 
 # Database
@@ -104,14 +104,14 @@ FIRST_DAY_OF_WEEK = 1
 """ Storages Conf           """
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.ftp.FTPStorage'
-# FTP_STORAGE_LOCATION = config("ASESALUD_FTP_STORAGE_LOCATION",)
+# FTP_STORAGE_LOCATION = config("FTP_STORAGE_LOCATION",)
 
 """ Email Conf.             """
 #
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = config("ASESALUD_EMAIL_HOST_USER",)
-EMAIL_HOST_PASSWORD = config("ASESALUD_EMAIL_HOST_PASSWORD",)
+EMAIL_HOST_USER = config("EMAIL_HOST_USER",)
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD",)
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
