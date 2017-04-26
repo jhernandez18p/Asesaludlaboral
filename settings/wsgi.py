@@ -8,9 +8,12 @@ https://docs.djangoproject.com/en/1.10/howto/deployment/wsgi/
 """
 
 import os
-
+from decouple import config
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings.base")
+if str(config('DEBUG')) == 'True':
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings.base")
+else:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings.production")
 
 application = get_wsgi_application()
