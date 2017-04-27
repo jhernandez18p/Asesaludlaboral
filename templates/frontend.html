@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{pg_title}} | {{site_name}}</title>
+    {% include 'base/head.html' %}
+</head>
+<body>
+    <header>
+        {% include 'base/header.html' %}
+    </header>
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+    <footer>
+        {% include 'base/footer.html' %}
+    </footer>
+</body>
+</html>
