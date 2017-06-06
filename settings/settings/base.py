@@ -2,11 +2,28 @@
 import os
 from decouple import config
 
+DEBUG = config('DEBUG')
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG')
 ROOT_URLCONF = 'settings.urls'
-WSGI_APPLICATION = 'settings.wsgi.application'
+
+if DEBUG:
+    # print("Hello world %s " % (str(DEBUG)))
+    WSGI_APPLICATION = 'settings.wsgi.application'
+    ALLOWED_HOSTS = ['*']
+    SITE_URL = '/'
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+else:
+    # print("Hello cruel world %s " % (str(DEBUG)))
+    WSGI_APPLICATION = 'settings.wsgi_prod.application'
+
 LANGUAGE_CODE = 'es-VE'
 USE_I18N = True
 USE_L10N = True
@@ -58,39 +75,14 @@ DJANGO_APPS = [
 LOCAL_APPS = []
 THIRDPARTY_APPS = []
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRDPARTY_APPS
-
-if DEBUG:
-    # print("Hello world %s " % (str(DEBUG)))
-    ALLOWED_HOSTS = ['*']
-    SITE_URL = '/'
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-
-else:
-    # print("Hello cruel world %s " % (str(DEBUG)))
-    ALLOWED_HOSTS = ['192.34.61.100', 'asesaludlaboral.com.ve', 'www.asesaludlaboral.com.ve']
-    SITE_URL = 'http://asesaludlaboral.com.ve'
-    DATABASES = {
-        'default':{
-            'ENGINE':config('DB_ENGINE'),
-            'NAME':config('DB_NAME'),
-            'USER':config('DB_USER'),
-            'PASSWORD':config('DB_PASSWORD'),
-            'HOST':config('DB_HOST'),
-            'PORT':config('DB_PORT', cast=int),
-        }
-    }
-    AUTHENTICATION_BACKENDS = [
-        'django.contrib.auth.backends.ModelBackend',
-        'local_apps.profiles.EmailBackend.EmailBackend',
-    ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'local_apps.profiles.EmailBackend.EmailBackend',
+]
 
 LOGIN_URL = 'dashboard'
 LOGIN_REDIRECT_URL = '/dashboard/'
+SITE_URL = 'http://wwww.asesaludlaboral.com.ve'
 LOGOUT_REDIRECT_URL = SITE_URL
 SESSION_COOKIE_AGE = 43200
 SESSION_COOKIE_NAME = 'session'
@@ -110,3 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = 'obediencia1212'
+EMAIL_HOST_USER = 'asesaludlaboral2727ca@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

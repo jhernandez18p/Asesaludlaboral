@@ -1,0 +1,20 @@
+<!DOCTYPE html>{% load staticfiles %}
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ pg_title }} - {{site_name}}</title>
+    {% include 'base/head.html' %}
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <header>{% include 'base/header.html' %}</header>
+    <section>{% block content %}{% endblock %}</section>
+    <footer>{% include 'base/footer.html' %}</footer>
+    <script src="{% static 'base/js/jquery.js' %}" charset="utf-8"></script>
+    <script src="{% static 'base/js/uikit.min.js' %}" charset="utf-8"></script>
+    <script src="{% static 'base/js/uikit-icons.min.js' %}" charset="utf-8"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>

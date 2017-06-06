@@ -1,9 +1,19 @@
 #!/usr/bin/env python
 import os
 import sys
+from decouple import config
+
+DEBUG = str(config('DEBUG'))
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings.base")
+    if DEBUG == 'True':
+        os.environ.setdefault(
+            "DJANGO_SETTINGS_MODULE", "settings.settings.base"
+        )
+    elif DEBUG == 'False':
+        os.environ.setdefault(
+            "DJANGO_SETTINGS_MODULE", "settings.settings.prod"
+        )
     try:
         from django.core.management import execute_from_command_line
     except ImportError:

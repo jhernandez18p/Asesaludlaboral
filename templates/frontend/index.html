@@ -1,5 +1,220 @@
-{% extends 'frontend.html' %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'base/css/swiper.min.css' %}">
+<style>
+    .vh100{
+        margin-top: 80px;
+    }
+    .head-slide .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .head-slide .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .typed-text{
+        text-align: center;
+    }
+    .typed-text span{
+        background-color: #00923f;
+        color: #fff;
+        line-height: 2em;
+    }
+    .typed-cursor{
+        /*font-size: 4em;*/
+        opacity: 1;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+    }
+    @keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-webkit-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-moz-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+</style>
+{% endblock %}
 
 {% block content %}
+{# slide under nav #}
+    <div class="uk-cover-container uk-height-large head-slide">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" uk-cover>
+                    <img src="https://static.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg" alt="">
+                </div>
+                <div class="swiper-slide" uk-cover>
+                    <img src="https://static.pexels.com/photos/162540/career-firefighter-relaxing-job-162540.jpeg" alt="">
+                </div>
+                <div class="swiper-slide" uk-cover>
+                    <img src="https://static.pexels.com/photos/33266/work-chinese-industrial-professional.jpg" alt="">
+                </div>
+                <div class="swiper-slide" uk-cover>
+                    <img src="https://static.pexels.com/photos/209230/pexels-photo-209230.jpeg" alt="">
+                </div>
+                <div class="swiper-slide" uk-cover>
+                    <img src="https://static.pexels.com/photos/300337/pexels-photo-300337.jpeg" alt="">
+                </div>
+                <div class="swiper-slide" uk-cover>
+                    <img src="https://static.pexels.com/photos/175039/pexels-photo-175039.jpeg" alt="">
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+{# slide under nav #}
+{# message #}
+    <div class="uk-section-large uk-section-muted">
+        <div class="uk-container">
+            <h2 class="uk-heading-primary typed-text">Asesalud Laboral: <span></span></h2>
+        </div>
+    </div>
+{# message #}
 
+{# Split side #}
+    <div class="uk-width-1-1 uk-background-muted">
+        <div class="uk-container">
+            <div class="uk-section-xsmall" uk-scrollspy="cls: uk-animation-fade; target: > .uk-card; delay: 2000; repeat: true">
+                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-grid uk-scrollspy-inview uk-animation-fade" uk-grid="">
+                    <div class="uk-first-column">
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">Misión</h3>
+                            <p>Nuestra misión es brindar asesorías destinadas al fortalecimiento de la cultura preventiva en materia de seguridad y salud laboral, con la finalidad de contribuir en la prevención de accidentes,enfermedades ocupacionales y la capacitación de la masa trabajadora en materia de salud y seguridad laboral.</p>
+                        </div>
+                    </div>
+                    <div class="uk-flex-last@s uk-card-media-left uk-cover-container">
+                        <img src="https://static.pexels.com/photos/258245/pexels-photo-258245.jpeg" alt="Vision" uk-cover="" class="uk-cover" style="height: 294px; width: 441px;">
+                        <canvas width="600" height="400"></canvas>
+                    </div>
+                </div>
+                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-grid uk-scrollspy-inview uk-animation-fade" uk-grid="">
+                    <div class="uk-card-media-left uk-cover-container uk-first-column">
+                        <img src="https://static.pexels.com/photos/66363/pexels-photo-66363.jpeg" alt="" uk-cover="" class="uk-cover" style="height: 294px; width: 441px;">
+                        <canvas width="600" height="400"></canvas>
+                    </div>
+                    <div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">Visión</h3>
+                            <p>Ser una empresa dedicada a brindar la mejor asesoría, servicio técnico y suministro de equipos en materia de seguridad y salud laboral, con la finalidad de satisfacer las necesidades del cliente en focadas al cumplimiento de los aspectos técnicos-legales en esta materia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{# Split side #}
+
+{# Contact #}
+    <div class="uk-section uk-section-xsmall uk-section-muted">
+        <div class="uk-container">
+            <div class="uk-child-width-1-2@m uk-grid-small " uk-grid>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <h3 class="uk-card-title">Contáctenos</h3>
+                        <p>Escriba a nuestra direccion <a href="mailto:asesoriasesalud@gmail.com">asesoriasesalud@gmail.com</a>.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-primary uk-card-body">
+                        <h3 class="uk-card-title">Solicite su asesoría</h3>
+                        <form class="uk-form-stacked" method="post" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text">Su nombre</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Escriba su nombre" name="form_name" required>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text">Su dirección de correo electrónico</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Escriba su correo electrónico" name="form_email" required>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text">Su número de teléfono</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Escriba número de teléfono" name="form_phone_number" required>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-select">Seleccione -- </label>
+                                <div class="uk-form-controls">
+                                    <select class="uk-select" id="form-stacked-select" name="form_select" required>
+                                        <option>Asesorías</option>
+                                        <option>Capacitación</option>
+                                        <option>Otros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <div class="uk-form-label">Escriba su mensaje</div>
+                                <div class="uk-form-controls">
+                                     <textarea class="uk-textarea" rows="5" placeholder="Escriba su mensaje..." name="form_message" required></textarea>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-medium-bottom">
+                            <button class="uk-button uk-button-primary button-phx uk-width-1-1 uk-margin-small-bottom">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{# Contact #}
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'base/js/swiper.min.js' %}"></script>
+    <script>
+        var swiper = new Swiper('.head-slide .swiper-container', {
+            nextButton: '.head-slide .swiper-button-next',
+            prevButton: '.head-slide .swiper-button-prev',
+            pagination: '.head-slide .swiper-pagination',
+            paginationType: 'progress',
+            autoplay: 2500,
+        });
+    </script>
+    <script src="{% static 'base/js/typed.min.js' %}"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function(){
+		Typed.new(".typed-text span", {
+			strings: [" Asesorías en materia de seguridad y salud laboral.", " Estudios Ambientales.","Elaboración del Programa de Seguridad y Salud en el Trabajo.","Servicio de seguridad y salud en el trabajo y el Comité de seguridad y salud laboral.","Manejo de situaciones de presunto acoso laboral.","Evaluaciones ambientales de ruido, iluminación y ambiente térmico."],
+			typeSpeed: 100,
+            loop:true,
+		});
+	});
+</script>
 {% endblock %}

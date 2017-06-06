@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<nav class="uk-navbar-container uk-sticky uk-sticky-fixed" uk-sticky="animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up" uk-navbar>
+    <div class="uk-navbar-center">
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                {# if site #}
+                    <li>
+                        <a href="{% url 'home' %}">
+                            <img class="logo-menu" src="{% if site.logo %}{{site.logo.url}}{% else %}{% static 'base/images/logo.png' %}{% endif %}" alt="{{site.name}}">
+                        </a>
+                    </li>
+                {# endif #}
+                <li class="{% if pg_title == 'Inicio' %}uk-active{% endif %}">
+                    <a href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="{% if pg_title == 'Asesorias' %}uk-active{% endif %}">
+                    <a href="{% url 'home' %}">Asesorias</a>
+                </li>
+                <li class="{% if pg_title == 'Capacitaciones' %}uk-active{% endif %}">
+                    <a href="{% url 'home' %}">Capacitaciones</a>
+                </li>
+                <li class="{% if pg_title == 'Evaluaciones' %}uk-active{% endif %}">
+                    <a href="{% url 'home' %}">Evaluaciones Ambientales</a>
+                </li>
+                <li class="{% if pg_title == 'Contacto' %}uk-active{% endif %}">
+                    <a href="{% url 'home' %}">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
