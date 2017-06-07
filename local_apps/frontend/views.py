@@ -48,8 +48,8 @@ def contact(request):
         subject_main = 'Asesaludlaboral.com.ve | nuevo mensaje de %s' % form_name
         from_email_user = 'noreply@asesaludlaboral.com.ve'
         from_email_main = form_email
-        message_user = 'Gracias %s, su mensaje ha sido enviado correctamente. '
-        message_main = """%s ha querido comunicarse y dejó el siguiente mensaje 
+        message_user = 'Gracias %s, su mensaje ha sido enviado correctamente.' % (form_name)
+        message_main = """ %s ha querido comunicarse y dejó el siguiente mensaje 
             \n %s \nLe interesa %s 
             \n Su correo es %s
             \n Su número de telefono es %s""" % (form_name, form_message, form_select, form_email, form_phone_number)
@@ -58,8 +58,8 @@ def contact(request):
             # Send to user
             send_mail(subject_user, message_user, from_email_user, [form_email])
             # Send to us
-            send_mail(subject_main, message_main, from_email_main, ['jhernandez.18p@dev2tech.xyz'])
-            # send_mail(subject_main, message_main, from_email_main, ['asesaludlaboral2727ca@gmail.com'])
+            # send_mail(subject_main, message_main, from_email_main, ['jhernandez.18p@dev2tech.xyz'])
+            send_mail(subject_main, message_main, from_email_main, ['asesaludlaboral2727ca@gmail.com'])
 
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
