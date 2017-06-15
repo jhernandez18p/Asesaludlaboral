@@ -72,8 +72,19 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-LOCAL_APPS = []
-THIRDPARTY_APPS = []
+LOCAL_APPS = [
+    'local_apps.assessment',
+    'local_apps.counseling',
+    'local_apps.dashboard',
+    'local_apps.frontend',
+    'local_apps.multimedia',
+    'local_apps.profiles',
+    'local_apps.training',
+    'local_apps.widgets',
+]
+THIRDPARTY_APPS = [
+    'ckeditor',
+]
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRDPARTY_APPS
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

@@ -3,24 +3,72 @@ from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
+from local_apps.widgets.models import (Carousel)
+
 # Create your views here.
+
 def home(request):
     """ Home view """
     template = 'frontend/index.html'
-    pg_title = 'Inicio'
+    pg_title = 'Home'
+    title = 'Inicio'
     context = {
         'pg_title':pg_title,
+        'title':title,
+    }
+
+    carousel = Carousel.objects.all().filter(template=1)
+    if carousel:
+        if str(carousel[0].position) == 'HEADER':
+            context['header_carousel'] = carousel[0]
+
+
+    return render(request, template, context)
+
+def assessment(request):
+    """ assessment view """
+    template = 'frontend/assessment.html'
+    pg_title = 'Assessment'
+    title = 'Evaluaciones'
+    context = {
+        'pg_title':pg_title,
+        'title':title,
     }
 
     return render(request, template, context)
 
+def training(request):
+    """ training view """
+    template = 'frontend/training.html'
+    pg_title = 'Training'
+    title = 'Capacitaciones'
+    context = {
+        'pg_title':pg_title,
+        'title':title,
+    }
+
+    return render(request, template, context)
+
+def counseling(request):
+    """ counseling view """
+    template = 'frontend/counseling.html'
+    pg_title = 'Counseling'
+    title = 'Asesorias'
+    context = {
+        'pg_title':pg_title,
+        'title':title,
+    }
+
+    return render(request, template, context)
 
 def contact_thanks(request):
     """ Home view """
     template = 'frontend/contact_thanks.html'
-    pg_title = 'Contacto'
+    pg_title = 'Contact'
+    title = 'Contacto'
     context = {
         'pg_title':pg_title,
+        'title':title,
     }
 
     return render(request, template, context)
@@ -29,9 +77,11 @@ def contact_thanks(request):
 def contact(request):
     """ Home view """
     template = 'frontend/index.html'
-    pg_title = 'Contacto'
+    pg_title = 'Contact'
+    title = 'Contacto'
     context = {
         'pg_title':pg_title,
+        'title':title,
     }
     form_name = ''
     form_email = ''

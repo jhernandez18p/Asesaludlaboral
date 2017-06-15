@@ -1,10 +1,13 @@
+from local_apps.frontend.models import Site
+
 def menu(request):
     """
     # Menu preprocessor 
     """
     context = {}
-    site_name = 'Asesalud Laboral 2727 C.A'
-    context['site_name'] = site_name
+    site = Site.objects.all()
+    if site:
+        context['site'] = site[0]
     return context
 
 

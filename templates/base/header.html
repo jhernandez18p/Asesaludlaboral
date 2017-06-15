@@ -3,27 +3,31 @@
     <div class="uk-navbar-center">
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                {# if site #}
+                {% if site %}
                     <li>
                         <a href="{% url 'home' %}">
-                            <img class="logo-menu" src="{% if site.logo %}{{site.logo.url}}{% else %}{% static 'base/images/logo.png' %}{% endif %}" alt="{{site.name}}">
+                            {% if site.logo %}
+                                <img class="logo-menu" src="{{site.logo.url}}" alt="{{site.name}}">
+                            {% else %}
+                                <img class="logo-menu" src="{% static 'base/images/logo.png' %}" alt="{{site.name}}">
+                            {% endif %}
                         </a>
                     </li>
-                {# endif #}
-                <li class="{% if pg_title == 'Inicio' %}uk-active{% endif %}">
+                {% endif %}
+                <li class="{% if pg_title == 'Home' %}uk-active{% endif %}">
                     <a href="{% url 'home' %}">Inicio</a>
                 </li>
-                <li class="{% if pg_title == 'Asesorias' %}uk-active{% endif %}">
-                    <a href="{% url 'home' %}">Asesorias</a>
+                <li class="{% if pg_title == 'Counseling' %}uk-active{% endif %}">
+                    <a href="{% url 'counseling' %}">Asesorias</a>
                 </li>
-                <li class="{% if pg_title == 'Capacitaciones' %}uk-active{% endif %}">
-                    <a href="{% url 'home' %}">Capacitaciones</a>
+                <li class="{% if pg_title == 'Training' %}uk-active{% endif %}">
+                    <a href="{% url 'training' %}">Capacitaciones</a>
                 </li>
-                <li class="{% if pg_title == 'Evaluaciones' %}uk-active{% endif %}">
-                    <a href="{% url 'home' %}">Evaluaciones Ambientales</a>
+                <li class="{% if pg_title == 'Assessment' %}uk-active{% endif %}">
+                    <a href="{% url 'assessment' %}">Evaluaciones</a>
                 </li>
-                <li class="{% if pg_title == 'Contacto' %}uk-active{% endif %}">
-                    <a href="{% url 'home' %}">Contacto</a>
+                <li class="{% if pg_title == 'Contact' %}uk-active{% endif %}">
+                    <a href="{% url 'contact' %}">Contacto</a>
                 </li>
             </ul>
         </div>
