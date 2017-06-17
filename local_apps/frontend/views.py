@@ -61,22 +61,11 @@ def counseling(request):
 
     return render(request, template, context)
 
-def contact_thanks(request):
-    """ Home view """
-    template = 'frontend/contact_thanks.html'
-    pg_title = 'Contact'
-    title = 'Contacto'
-    context = {
-        'pg_title':pg_title,
-        'title':title,
-    }
-
-    return render(request, template, context)
 
 
 def contact(request):
     """ Home view """
-    template = 'frontend/index.html'
+    template = 'frontend/contact.html'
     pg_title = 'Contact'
     title = 'Contacto'
     context = {
@@ -103,7 +92,7 @@ def contact(request):
             \n %s \nLe interesa %s 
             \n Su correo es %s
             \n Su número de telefono es %s
-            \n --- Este mensaje se ha enviado desde la página web https://www.asesaludlaboral.com.ve/---""" % (form_name, form_message, form_select, form_email, form_phone_number)
+            \n --- Este mensaje se ha enviado desde la página web https://www.asesaludlaboral.com.ve/   ---""" % (form_name, form_message, form_select, form_email, form_phone_number)
 
         try:
             # Send to user
@@ -120,4 +109,17 @@ def contact(request):
         print('No post')
     print(form_name,form_email,form_phone_number,form_select,form_message)
     
+    return render(request, template, context)
+
+
+def contact_thanks(request):
+    """ Home view """
+    template = 'frontend/contact_thanks.html'
+    pg_title = 'Contact'
+    title = 'Contacto'
+    context = {
+        'pg_title':pg_title,
+        'title':title,
+    }
+
     return render(request, template, context)

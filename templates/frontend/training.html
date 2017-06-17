@@ -2,23 +2,254 @@
 {% load staticfiles %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'base/css/swiper.min.css' %}">
 <style>
-    
+    .vh100{margin-top: 80px;}
+    .head-slide .swiper-container {width: 100%;height: 100%;}
+    .head-slide .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .typed-text{text-align: center;}
+    .typed-text span{background-color: #00923f;color: #fff;line-height: 2em;}
+    .typed-cursor{
+        /*font-size: 4em;*/
+        opacity: 1;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+    }
+    @keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-webkit-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-moz-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-
-<div class="uk-section-large uk-section-muted">
-    <div class="uk-section-small uk-container">
-        <div class="uk-section-large">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-box-shadow-large">
-                <h3 class="uk-card-title">Gracias su mensaje se ha enviado correctamente</h3>
+    {# slide under nav #}
+        <div class="uk-cover-container uk-height-large head-slide">
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% if header_carousel %}
+                        {% for image in header_carousel.img.all %}
+                            <div class="swiper-slide" uk-cover>
+                                <img src="{{image.large.url}}" alt="">
+                            </div>
+                        {% empty %}
+                        {% endfor %}
+                    {% endif %}
+                    <div class="swiper-slide" uk-cover>
+                        <img src="https://static.pexels.com/photos/7103/writing-notes-idea-conference.jpg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
+    {# slide under nav #}
 
-    </div>
-</div>
+    {# message #}
+        <div class="uk-section-xsmall uk-section-muted">
+            <div class="uk-container">
+                <div class="uk-section-xsmall">
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-box-shadow-large">
+                        <p class="uk-card-title">
+                            En materia de seguridad y salud en el trabajo la capacitación de los trabajadores juega un papel fundamental en la prevención de accidentes y enfermedades ocupacionales.
+                            <br>
+                            La legislación nacional en materia de seguridad y salud laboral, establece un mínimo de dieciséis (16) horas trimestrales de capacitación en materia de seguridad y salud en el trabajo por cada trabajador.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-section-large uk-section-muted">
+            <div class="uk-container">
+                <h2 class="uk-heading-primary typed-text">Cursos disponibles</h2>
+            </div>
+        </div>
+    {# message #}
+
+    {# courses #}
+        <div class="uk-section uk-section-xsmall uk-section-muted">
+            <div class="uk-container">
+                <div class="uk-grid-match uk-text-center uk-child-width-1-2@m uk-child-width-1@s" uk-grid uk-height-match="target: > div > .uk-card" uk-scrollspy="cls: uk-animation-slide-top-small; target: > div > .uk-card; delay: 900; repeat: false">
+
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Prevención de accidentes y enfermedades ocupacionales.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Factores de riesgo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Taller Básico de seguridad y salud laboral.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Norma Técnica (NT-01-2008) Programa de seguridad y salud en el Trabajo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Norma Técnica (NT-02-2008) Declaración de enfermedad ocupacional.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Norma Técnica (NT-03-2016) Servicios de seguridad y salud en el trabajo (propios y mancomunados).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Norma Técnica (NT-04-2016) Control en el levantamiento, traslado y manipulación, manual de cargas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    El Supervisor y su participación en la seguridad y salud en el trabajo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Introducción a la Higiene de Campo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Identificación, evaluación y control de factores de riesgos físicos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Identificación, evaluación y control de factores de riesgo químico.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Materiales y sustancias peligrosas. Hojas de datos de seguridad (HDSM).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {# courses #}
+    {# form #}
+    {# form #}
 {% endblock %}
 
 {% block js %}

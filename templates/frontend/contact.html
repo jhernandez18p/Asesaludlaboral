@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+<style>
+    
+</style>
+{% endblock %}
+
+{% block content %}
+    {# contact form #}
+        <div class="uk-section uk-section-xsmall uk-section-muted">
+            <div class="uk-container">
+                <div class="uk-child-width-1-2@m uk-grid-small " uk-grid>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <h3 class="uk-card-title">Contáctenos</h3>
+                            <p>Escriba a nuestra direccion <a href="mailto:asesoriasesalud@gmail.com">asesoriasesalud@gmail.com</a>.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-primary uk-card-body">
+                            <h3 class="uk-card-title">Solicite su asesoría</h3>
+                            <form class="uk-form-stacked" method="post" action="{% url 'contact' %}">
+                                {% csrf_token %}
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-stacked-text">Su nombre</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input" id="form-stacked-text" type="text" placeholder="Escriba su nombre" name="form_name" required>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-stacked-text">Su dirección de correo electrónico</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input" id="form-stacked-text" type="text" placeholder="Escriba su correo electrónico" name="form_email" required>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-stacked-text">Su número de teléfono</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input" id="form-stacked-text" type="text" placeholder="Escriba número de teléfono" name="form_phone_number" required>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-stacked-select">Seleccione -- </label>
+                                    <div class="uk-form-controls">
+                                        <select class="uk-select" id="form-stacked-select" name="form_select" required>
+                                            <option>Asesorías</option>
+                                            <option>Capacitación</option>
+                                            <option>Otros</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-label">Escriba su mensaje</div>
+                                    <div class="uk-form-controls">
+                                        <textarea class="uk-textarea" rows="5" placeholder="Escriba su mensaje..." name="form_message" required></textarea>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-medium-bottom">
+                                <button class="uk-button uk-button-primary button-phx uk-width-1-1 uk-margin-small-bottom">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {# contact form #}
+{% endblock %}
+
+{% block js %}
+{% endblock %}
