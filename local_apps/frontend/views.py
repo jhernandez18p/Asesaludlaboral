@@ -62,7 +62,6 @@ def counseling(request):
     return render(request, template, context)
 
 
-
 def contact(request):
     """ Home view """
     template = 'frontend/contact.html'
