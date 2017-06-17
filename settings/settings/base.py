@@ -30,13 +30,11 @@ USE_L10N = True
 USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'media'))
-# STATICFILES_DIRS = (
-#     os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'staticfiles')),
-# )
-STATIC_ROOT = os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'staticfiles'))
-# STATIC_ROOT = os.path.abspath(
-#     os.path.join(os.path.join(BASE_DIR,os.pardir),'staticfiles'))
+MEDIA_ROOT = os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'media'))
+STATICFILES_DIRS = (
+    os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'staticfiles')),
+)
+# STATIC_ROOT = os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'staticfiles'))
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
