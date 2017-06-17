@@ -34,9 +34,7 @@ MEDIA_URL = '/media/'
 # STATICFILES_DIRS = (
 #     os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'staticfiles')),
 # )
-STATIC_ROOT = (
-    os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'staticfiles')),
-)
+STATIC_ROOT = os.path.abspath(os.path.join(os.path.join(BASE_DIR, os.pardir), 'staticfiles'))
 # STATIC_ROOT = os.path.abspath(
 #     os.path.join(os.path.join(BASE_DIR,os.pardir),'staticfiles'))
 MIDDLEWARE = [
