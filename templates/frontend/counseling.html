@@ -2,23 +2,92 @@
 {% load staticfiles %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'base/css/swiper.min.css' %}">
 <style>
-    
+    .vh100{margin-top: 80px;}
+    .head-slide .swiper-container {width: 100%;height: 100%;}
+    .head-slide .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .typed-text{text-align: center;}
+    .typed-text span{background-color: #00923f;color: #fff;line-height: 2em;}
+    .typed-cursor{
+        /*font-size: 4em;*/
+        opacity: 1;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+    }
+    @keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-webkit-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-moz-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 
-<div class="uk-section-small uk-section-muted">
-    <div class="uk-section-xsmall uk-container">
-        <div class="">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-box-shadow-large">
-                <h3 class="uk-card-title">{{title}}</h3>
+    {# slide under nav #}
+        <div class="uk-cover-container uk-height-large head-slide">
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% if header_carousel %}
+                        {% for image in header_carousel.img.all %}
+                            <div class="swiper-slide" uk-cover>
+                                <img src="{{image.large.url}}" alt="">
+                            </div>
+                        {% empty %}
+                        {% endfor %}
+                    {% endif %}
+                    <div class="swiper-slide" uk-cover>
+                        <img src="https://static.pexels.com/photos/401684/pexels-photo-401684.jpeg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    {# slide under nav #}
+    
+    {# grid #}
+
+    {# grid #}
+    
+    {# form #}
+    {# form #}
+
 {% endblock %}
 
 {% block js %}
 {% endblock %}
+
+        <div class="uk-grid-small uk-margin-medium-top uk-child-width-expand@s uk-text-center" uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-height-large">Item</div>
+            </div>
+        </div>

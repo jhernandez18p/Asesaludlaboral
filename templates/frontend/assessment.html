@@ -2,24 +2,213 @@
 {% load staticfiles %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'base/css/swiper.min.css' %}">
 <style>
-    
+    .vh100{margin-top: 80px;}
+    .head-slide .swiper-container {width: 100%;height: 100%;}
+    .head-slide .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .typed-text{text-align: center;}
+    .typed-text span{background-color: #00923f;color: #fff;line-height: 2em;}
+    .typed-cursor{
+        /*font-size: 4em;*/
+        opacity: 1;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+    }
+    @keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-webkit-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-moz-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+
+    .rfnom .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .rfnom .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .rfnom .swiper-slide p{color: #FFF}
 </style>
 {% endblock %}
 
 {% block content %}
 
-<div class="uk-section-large uk-section-muted">
-    <div class="uk-section-small uk-container">
-        <div class="uk-section-large">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-box-shadow-large">
-                <h3 class="uk-card-title">{{title}}</h3>
+    {# slide under nav #}
+        <div class="uk-cover-container uk-height-large head-slide">
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% if header_carousel %}
+                        {% for image in header_carousel.img.all %}
+                            <div class="swiper-slide" uk-cover>
+                                <img src="{{image.large.url}}" alt="">
+                            </div>
+                        {% empty %}
+                        {% endfor %}
+                    {% endif %}
+                    <div class="swiper-slide" uk-cover>
+                        <img src="https://static.pexels.com/photos/429248/pexels-photo-429248.jpeg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
+    {# slide under nav #}
 
-    </div>
-</div>
+    {# message #}
+        <div class="uk-section-xsmall uk-section-muted">
+            <div class="uk-container">
+                <div class="uk-section-xsmall">
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-box-shadow-large">
+                        <p class="uk-card-title">
+                            Las evaluaciones ambientales son un requerimiento establecido en la Ley Orgánica de Prevención, Condiciones y Medio Ambiente de Trabajo (LOPCYMAT) así como en otras normas (técnico-legal) como el Reglamento de las condiciones de Higiene y Seguridad en el Trabajo, Normas Técnicas (INPSASEL) y Normas Covenin.
+                            <br>
+                            <br>
+                            A continuación encontraráns una breve descripción de cada tipo de evaluación:
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-section-large uk-section-muted">
+            <div class="uk-container">
+                <h2 class="uk-heading-primary typed-text">Riesgos Físicos (No mecánicos)</h2>
+            </div>
+        </div>
+    {# message #}
+
+    {# evaluaciones #}
+        <div class="uk-section uk-section-xsmall uk-section-muted">
+            <div class="uk-container">
+                <div class="uk-grid-match uk-text-center uk-child-width-1-1@m uk-child-width-1@s uk-height-large" uk-grid uk-height-match="target: > div > .uk-card" uk-scrollspy="cls: uk-animation-slide-top-small; target: > div > .uk-card; delay: 900; repeat: false">
+                    <div class="rfnom">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" style="background-image:url(https://static.pexels.com/photos/391994/pexels-photo-391994.jpeg)">
+                                    <p class="uk-h2">Ruido</p>
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(https://static.pexels.com/photos/391994/pexels-photo-391994.jpeg)">
+                                    <p class="uk-h2">Temperatura</p>
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(https://static.pexels.com/photos/391994/pexels-photo-391994.jpeg)">
+                                    <p class="uk-h2">Ventilación</p>
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(https://static.pexels.com/photos/391994/pexels-photo-391994.jpeg)">
+                                    <p class="uk-h2">Iluminación</p>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    {# evaluaciones #}
+
+    {# message #}
+        <div class="uk-section-large uk-section-muted">
+            <div class="uk-container">
+                <h2 class="uk-heading-primary typed-text">Riesgos Químicos</h2>
+            </div>
+        </div>
+    {# message #}
+
+    {# evaluaciones #}
+        <div class="uk-section uk-section-xsmall uk-section-muted">
+            <div class="uk-container">
+                <div class="uk-grid-match uk-text-center uk-child-width-1-2@m uk-child-width-1@s" uk-grid uk-height-match="target: > div > .uk-card" uk-scrollspy="cls: uk-animation-slide-top-small; target: > div > .uk-card; delay: 900; repeat: false">
+
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Prevención de accidentes y enfermedades ocupacionales.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-height-medium">
+                            <div class="uk-card-media-center">
+                                <a href="#{{brand.id}}modal-full" uk-toggle>
+                                    <img src="" alt=""  onmouseover="this.src='https://static.pexels.com/photos/404291/pexels-photo-404291.jpeg'" onmouseout="this.src='https://static.pexels.com/photos/32237/pexels-photo.jpg'">
+                                </a>
+                                <p class="uk-padding-small uk-card-title uk-position-center">
+                                    Factores de riesgo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {# evaluaciones #}
+    
+    {# form #}
+    {# form #}
+
 {% endblock %}
 
 {% block js %}
+<script src="{% static 'base/js/swiper.min.js' %}"></script>
+<script src="{% static 'base/js/typed.min.js' %}"></script>
+<script>
+    var swiper = new Swiper('.rfnom .swiper-container', {
+        pagination: '.rfnom .swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.rfnom .swiper-button-next',
+        prevButton: '.rfnom .swiper-button-prev',
+        spaceBetween: 30
+    });
+</script>
 {% endblock %}
